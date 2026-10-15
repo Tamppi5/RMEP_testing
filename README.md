@@ -55,7 +55,7 @@ The archive is written directly to the repository root as `<foldername>.zip`, an
 If PowerShell blocks the script with an execution policy error, run it once for the current terminal session like this:
 
 ```powershell
-Set-ExecutionPolicy -Scope Process Bypass
+powershell Set-ExecutionPolicy -Scope Process Bypass
 ```
 
 In PowerShell:
