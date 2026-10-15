@@ -66,6 +66,8 @@ powershell -ExecutionPolicy Bypass -File backup-and-start.ps1 -FolderName "data"
 
 del "data.zip"
 
+powershell Remove-Item -Recurse -Force "RMEP_testing"
+
 
 
 ## Customizing Your Study
