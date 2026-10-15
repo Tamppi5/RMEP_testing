@@ -48,25 +48,7 @@
    - Press `Ctrl+C` in the terminal where docker-compose is running
    - Or run: `docker-compose down`
 
-### Optional: create a zip and open it for manual Google Drive upload
-
-If you want to search for a folder on your Windows machine, zip it, and then open the archive in File Explorer so you can upload it to Google Drive through the web UI, use the PowerShell script in the repository root:
-
-```powershell
-.\backup-and-start.ps1 -FolderName "MyFolder" -SearchRoots "C:\Users\tapio" -StartDocker
-```
-
-If you already know the exact folder path, you can skip the search:
-
-```powershell
-.\backup-and-start.ps1 -FolderPath "C:\Users\tapio\Documents\MyFolder" -StartDocker
-```
-
-You can also use Windows environment variables in the path, for example:
-
-```powershell
-.\backup-and-start.ps1 -FolderPath "%APPDATA%\MyFolder" -StartDocker
-```
+### Optional: create a zip and open it for manual upload
 
 The archive is written directly to the repository root as `<foldername>.zip`, and Windows File Explorer opens that folder so you can drag or upload the zip file manually to Google Drive.
 
@@ -74,26 +56,6 @@ If PowerShell blocks the script with an execution policy error, run it once for 
 
 ```powershell
 Set-ExecutionPolicy -Scope Process Bypass
-```
-
-If you want to allow your own PowerShell scripts for your user account, use:
-
-```powershell
-Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
-```
-
-You can also bypass the policy for a single run by starting PowerShell with `-ExecutionPolicy Bypass`.
-
-### Optional: delete the zip file after uploading it
-
-Once the zip is uploaded to Google Drive, you can delete it from the repository root. Run the command in the repository root and replace `Cache.zip` with the name of your zip (it is named after the backed-up folder).
-
-> **Warning:** these commands delete the file permanently. It does **not** go to the Recycle Bin. The original folder is not touched.
-
-In Command Prompt (cmd):
-
-```cmd
-del "Cache.zip"
 ```
 
 In PowerShell:
